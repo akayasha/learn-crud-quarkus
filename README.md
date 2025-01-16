@@ -161,6 +161,5 @@ Development Notes
 License
 -------
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML``   vbnetCopyEdit  This is the corrected and fully formatted version in Markdown. You can now copy and paste this into your `README.md` file in your repository. Let me know if you need any further adjustments!   ``
+This project is licensed under the MIT License. See the LICENSE
+``  This is the corrected and fully formatted version in Markdown. You can now copy and paste this into your `README.md` file in your repository. Let me know if you need any further adjustments!   ``
