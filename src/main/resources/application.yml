@@ -1,0 +1,27 @@
+quarkus:
+  datasource:
+    db-kind: mysql
+    username: root
+    password:
+    jdbc:
+      url: jdbc:mysql://localhost:3306/learn-crud-quarkus
+  hibernate-orm:
+    dialect: org.hibernate.dialect.MySQLDialect
+    log:
+      sql: true
+    sql-load-script: import.sql
+  http:
+    port: 8081
+  flyway:
+    migrate-at-start: true
+    clean-at-start: false
+
+logging:
+  level: INFO
+
+
+smallrye-openapi:
+  info:
+    title: Your API Title
+    version: 1.0.0
+  path: /openapi
