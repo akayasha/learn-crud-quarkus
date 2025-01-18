@@ -11,4 +11,9 @@ public class StudentRepository implements PanacheRepositoryBase<Student, String>
     public Optional<Student> findByNimOptional(String nim) {
         return find("nim", nim).firstResultOptional();
     }
+
+    public Optional<Student> findByClass(String classes) {
+        return find("classes" , classes).firstResultOptional();
+    }
+
 }

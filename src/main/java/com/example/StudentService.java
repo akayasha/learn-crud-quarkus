@@ -29,6 +29,11 @@ public class StudentService {
                 .map(this::toDomain);
     }
 
+    public  Optional<StudentDto> findByClasses(String classes) {
+        return studentRepository.findByClass(classes)
+                .map(this::toDomain);
+    }
+
     @Transactional
     public StudentDto save(StudentDto student) {
         validateStudent(student);
@@ -43,12 +48,14 @@ public class StudentService {
     @Transactional
     public StudentDto update(StudentDto studentDto) {
         if (studentDto.getNim() == null) {
-            throw new ServiceException("NIM must not be null");
-        }
+            throw new ServiceException("Not Found for Nim Student");
+      }
+
         Optional<Student> optionalStudent = studentRepository.findByNimOptional(studentDto.getNim());
         if (optionalStudent.isEmpty()) {
-            throw new ServiceException("No student found with NIM: " + studentDto.getNim());
+            throw new ServiceException("No teacher found with NIP: " + studentDto.getNim());
         }
+
         if (isDuplicate(studentDto.getNim(), studentDto.getEmail(), studentDto.getPhoneNo())) {
             throw new ServiceException("Duplicate NIM, Email, or Phone Number found");
         }

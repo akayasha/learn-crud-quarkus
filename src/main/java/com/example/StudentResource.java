@@ -10,6 +10,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -39,6 +40,30 @@ public class StudentResource {
         return ResponseHandler.generateResponse(
                 200, "Students retrieved successfully", studentService.findAll());
     }
+
+
+    @GET
+    @Path("/{classes}")
+    @APIResponses({
+            @APIResponse(
+                    responseCode = "200",
+                    description = "Retrieve Student by Classes",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(type = SchemaType.OBJECT, implementation = StudentDto.class))
+            ),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Student not found for the provided Classes",
+                    content = @Content(mediaType = "application/json")
+            )
+    })
+    public Response getStudentByClasses(@PathParam("classes") String classes) {
+        LOGGER.info("Fetching Student by Classes" + classes);
+        return studentService.findByClasses(classes)
+                .map(studentDto -> ResponseHandler.generateResponse(200,"Student retrieved succesfully",studentDto))
+                .orElseGet(() -> ResponseHandler.generateResponse(404,"Student not found","{}"));
+    }
+
 
     @GET
     @Path("/{nim}")

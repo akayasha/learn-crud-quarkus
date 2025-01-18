@@ -18,7 +18,7 @@ public class Student {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "classes")
+    @Column(name = "classes", nullable = false)
     private String classes;
 
     @Column(name = "dob")
